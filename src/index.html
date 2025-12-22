@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-/* Reseteo y base global */
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +32,6 @@ body {
   position: relative;
 }
 
-/* Fondo con retículas neón animadas */
 body::before {
   content: "";
   position: fixed;
@@ -72,7 +70,6 @@ body::after {
   50% { opacity: 0.8; }
 }
 
-/* Barra de navegación futurista */
 .nav-futurist {
   position: fixed;
   top: 0;
@@ -151,7 +148,6 @@ body::after {
   width: 100%;
 }
 
-/* Sección de bienvenida: "Puerto de entrada" */
 .landing-port {
   height: 100vh;
   display: flex;
@@ -194,19 +190,16 @@ body::after {
   animation: titleFade 0.8s forwards;
 }
 
-/* Animación de aparición secuencial del título */
 .landing-title span:nth-child(1) { animation-delay: 0.2s; }
 .landing-title span:nth-child(2) { animation-delay: 0.4s; }
 .landing-title span:nth-child(3) { animation-delay: 0.6s; }
 .landing-title span:nth-child(4) { animation-delay: 0.8s; }
-.landing-title span:nth-child(5) { animation-delay: 1s; }
 
 @keyframes titleFade {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Efecto neón en palabras clave del título */
 .landing-title .neon-cyan {
   color: var(--neon-cyan);
   text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
@@ -250,7 +243,6 @@ body::after {
   overflow: hidden;
 }
 
-/* Botón principal con neón */
 .cta-primary {
   background-color: var(--neon-cyan);
   color: var(--dark-bg);
@@ -263,7 +255,6 @@ body::after {
   transform: scale(1.05);
 }
 
-/* Botón secundario con borde neón */
 .cta-secondary {
   background-color: transparent;
   color: var(--neon-magenta);
@@ -278,7 +269,6 @@ body::after {
   transform: scale(1.05);
 }
 
-/* Efecto de onda en botones al hacer clic */
 .cta-btn::after {
   content: "";
   position: absolute;
@@ -302,7 +292,6 @@ body::after {
   animation: btnRipple 0.6s forwards;
 }
 
-/* Sección: Habilidades en "módulos tecnológicos" */
 .skills-modules {
   padding: 120px 5%;
   position: relative;
@@ -349,13 +338,11 @@ body::after {
   overflow: hidden;
 }
 
-/* Animación de aparición de módulos al hacer scroll */
 .skill-module.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Efecto de luz en borde al pasar el cursor */
 .skill-module:hover {
   border-color: var(--neon-cyan);
   box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px rgba(0, 255, 255, 0.1);
@@ -404,7 +391,6 @@ body::after {
   line-height: 1.5;
 }
 
-/* Sección: Proyectos en "ventanas de código" */
 .projects-windows {
   padding: 120px 5%;
   background-color: var(--dark-overlay);
@@ -435,7 +421,6 @@ body::after {
   transform: scale(1);
 }
 
-/* Barra de título de la "ventana" */
 .window-bar {
   background-color: #111;
   padding: 10px 15px;
@@ -462,7 +447,6 @@ body::after {
   margin-left: auto;
 }
 
-/* Contenido de la "ventana" del proyecto */
 .window-content {
   padding: 25px;
   height: 320px;
@@ -539,10 +523,30 @@ body::after {
   box-shadow: 0 15px 35px rgba(255, 0, 255, 0.15);
 }
 
-/* Sección: Contacto en "terminal de mensajes" */
+/* Sección: Contacto (ajustada sin formulario de envío) */
 .contact-terminal {
   padding: 120px 5%;
   position: relative;
+}
+
+.section-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
 }
 
 .terminal-container {
@@ -590,42 +594,6 @@ body::after {
 .terminal-prompt {
   color: var(--neon-cyan);
   font-weight: bold;
-}
-
-.terminal-input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: var(--neon-yellow);
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  width: 80%;
-  margin-left: 5px;
-}
-
-.terminal-form {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.terminal-btn {
-  background-color: transparent;
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-left: auto;
-}
-
-.terminal-btn:hover {
-  background-color: var(--neon-cyan);
-  color: #000;
-  box-shadow: 0 0 15px var(--neon-cyan);
 }
 
 /* Botón de scroll hacia arriba: "flecha de propulsión" */
@@ -755,10 +723,6 @@ body::after {
     margin: 0 auto;
     max-width: 400px;
   }
-
-  .terminal-input {
-    width: 70%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -850,7 +814,7 @@ body::after {
           <div class="window-dot dot-red"></div>
           <div class="window-dot dot-yellow"></div>
           <div class="window-dot dot-green"></div>
-          <div class="window-title">ansibot.exe</div>
+          <div class="window-title">alyabot.exe</div>
         </div>
         <div class="window-content">
           <img src="https://o.uguu.se/npelSTSh.jpg" alt="Alya Bot" class="project-preview">
@@ -870,26 +834,52 @@ body::after {
         </div>
       </div>
 
+      <div class="project-window">
+        <div class="window-bar">
+          <div class="window-dot dot-red"></div>
+          <div class="window-dot dot-yellow"></div>
+          <div class="window-dot dot-green"></div>
+          <div class="window-title">stellar-api.exe</div>
+        </div>
+        <div class="window-content">
+          <img src="https://i.ibb.co/nqNmkJ8J/1739060138407.png" alt="STELLAR API REST" class="project-preview">
+          <div>
+            <h3 class="project-name">STELLAR API REST</h3>
+            <p class="project-desc">API diseñada para integrar en bots o proyectos: endpoints de búsqueda de imágenes, generación de texto y datos de clima.</p>
+            <div class="project-tags">
+              <span class="tag">Express.js</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Node.js</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/DevZyxlJs/stellar-api" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
+              <a href="https://api.stellarwa.xyz" target="_blank" class="action-link"><i class="fa-solid fa-book"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Tercer proyecto para completar la cuadrícula -->
 <div class="project-window">
   <div class="window-bar">
     <div class="window-dot dot-red"></div>
     <div class="window-dot dot-yellow"></div>
     <div class="window-dot dot-green"></div>
-    <div class="window-title">Api Stellar</div>
+    <div class="window-title">zyxl-dashboard.exe</div>
   </div>
   <div class="window-content">
-    <img src="https://i.ibb.co/nqNmkJ8J/1739060138407.png" alt="STELLAR API RES'T" class="project-preview">
+    <img src="https://i.ibb.co/7VZ8X7t/1739060500123.png" alt="ZYXL DASHBOARD" class="project-preview">
     <div>
-      <h3 class="project-name">STELLAR API RES'T</h3>
-      <p class="project-desc">API diseñada para integrar en bots o proyectos: endpoints de búsqueda de imágenes, generación de texto y datos de clima.</p>
+      <h3 class="project-name">ZYXL DASHBOARD</h3>
+      <p class="project-desc">Panel de control para monitorear bots y APIs: visualización de estadísticas, gestión de usuarios y configuración en tiempo real.</p>
       <div class="project-tags">
-        <span class="tag">Express.js</span>
-        <span class="tag">REST API</span>
-        <span class="tag">Node.js</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Express</span>
       </div>
       <div class="project-actions">
-        <a href="https://api.stellarwa.xyz" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
-        <a href="#" target="_blank" class="action-link"><i class="fa-solid fa-book"></i></a>
+        <a href="https://github.com/DevZyxlJs/zyxl-dashboard" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
+        <a href="#" target="_blank" class="action-link"><i class="fa-solid fa-eye"></i></a>
       </div>
     </div>
   </div>
@@ -897,51 +887,65 @@ body::after {
 </div>
 </section>
 
+<!-- Sección de Contacto (completada sin formulario de envío, coherente con tu solicitud) -->
+<section id="contact" class="contact-terminal">
+  <h2 class="section-heading">TERMINAL DE CONTACTO</h2>
+  <div class="terminal-container">
+    <div class="terminal-bar">
+      <div class="window-dot dot-red"></div>
+      <div class="window-dot dot-yellow"></div>
+      <div class="window-dot dot-green"></div>
+      <div class="terminal-title">zyxl-contacto.exe - [modo: activo]</div>
+    </div>
+    <div class="terminal-content">
+      <p><span class="terminal-prompt">>_</span> Hola! Para contactarme directamente, usa mis redes sociales a continuación:</p>
+      <p><span class="terminal-prompt">>_</span> • WhatsApp: +54 9 291 645-0307</p>
+      <p><span class="terminal-prompt">>_</span> • GitHub: DevZyxlJs</p>
+      <p><span class="terminal-prompt">>_</span> • Puedes acceder a mis perfiles desde el pie de página de este sitio.</p>
+      <p><span class="terminal-prompt">>_</span> ¡Espero escucharte pronto!</p>
+    </div>
+  </div>
+</section>
+
 <!-- Botón de scroll hacia arriba: Flecha de propulsión -->
 <div class="scroll-thruster">
   <i class="fa-solid fa-rocket"></i>
 </div>
 
-<!-- Pie de página: Marcador de ruta -->
+<!-- Pie de página: "marcador de ruta" (arreglado el cierre de etiquetas) -->
 <footer class="footer-beacon">
-  <div class="beacon-logo">ZYXLJS - DESARROLLO</div>
+  <div class="beacon-logo">ZYXLJS - DESARROLLO DIGITAL</div>
+  <div class="beacon-links">
     <a href="https://wa.me/5492916450307" target="_blank" class="beacon-link"><i class="fa-brands fa-whatsapp"></i></a>
     <a href="https://github.com/DevZyxlJs" target="_blank" class="beacon-link"><i class="fa-brands fa-github"></i></a>
   </div>
   <p class="beacon-copyright">© 2025 DevZyxlJs - Todos Los Derechos Reservados.</p>
 </footer>
 
-<!-- Scripts interactivos -->
+<!-- Scripts interactivos (arreglados para que no referencien el formulario que eliminaste) -->
 <script>
-  // Elementos del DOM
   const scrollThruster = document.querySelector('.scroll-thruster');
   const skillModules = document.querySelectorAll('.skill-module');
   const projectWindows = document.querySelectorAll('.project-window');
   const terminalContainer = document.querySelector('.terminal-container');
   const ctaButtons = document.querySelectorAll('.cta-btn');
 
-  // Función para detectar si un elemento está en vista
   const isInView = (element) => {
     const rect = element.getBoundingClientRect();
     return rect.top < window.innerHeight - 100 && rect.bottom > 0;
   };
 
-  // Animar elementos al entrar en vista
   const animateOnScroll = () => {
-    // Animar módulos de habilidades
     skillModules.forEach(module => {
       if (isInView(module)) module.classList.add('show');
     });
 
-    // Animar ventanas de proyectos
     projectWindows.forEach(window => {
       if (isInView(window)) window.classList.add('show');
     });
 
-    // Animar terminal de contacto
     if (isInView(terminalContainer)) terminalContainer.classList.add('show');
 
-    // Mostrar/ocultar botón de scroll
     if (window.scrollY > 500) {
       scrollThruster.classList.add('show');
     } else {
@@ -949,7 +953,6 @@ body::after {
     }
   };
 
-  // Función para ir hacia arriba al hacer clic en el botón
   scrollThruster.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
@@ -957,34 +960,16 @@ body::after {
     });
   });
 
-  // Función para prevenir envío del formulario (solo para demostración)
-  document.querySelector('.terminal-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = document.querySelector('.terminal-input');
-    const terminalContent = document.querySelector('.terminal-content');
-    const newLine = document.createElement('p');
-    newLine.innerHTML = `<span class="terminal-prompt">>_</span> Mensaje enviado! Gracias por contactarme, te responderé pronto.`;
-    terminalContent.appendChild(newLine);
-    input.value = '';
-    // Desplazar hasta el final de la terminal
-    terminalContent.scrollTop = terminalContent.scrollHeight;
-  });
-
-  // Eliminar animación de onda después de cada clic en botones
   ctaButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const after = btn.querySelector('::after');
-      if (after) {
-        setTimeout(() => {
-          btn.style.animation = 'none';
-          btn.offsetHeight; // Reiniciar animación
-          btn.style.animation = null;
-        }, 600);
-      }
+      setTimeout(() => {
+        btn.style.animation = 'none';
+        btn.offsetHeight;
+        btn.style.animation = null;
+      }, 600);
     });
   });
 
-  // Ejecutar animaciones al cargar y al hacer scroll
   window.addEventListener('load', animateOnScroll);
   window.addEventListener('scroll', animateOnScroll);
 </script>
