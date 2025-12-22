@@ -16,6 +16,8 @@ app.use(cors())
 // Webs
 app.get('/', (req, res) => {
 res.redirect('/home')})
+app.get('/favicon.ico', (req, res) => {
+res.redirect('https://github.com/DevZyxlJs.png')})
 app.use('/home', express.static(path.join(__dirname, 'src', 'index.html')))
 
 module.exports = app
