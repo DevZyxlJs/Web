@@ -399,7 +399,7 @@ body::after {
 
 .windows-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
@@ -449,24 +449,17 @@ body::after {
 
 .window-content {
   padding: 25px;
-  height: 320px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 15px;
 }
 
 .project-preview {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   border-radius: 5px;
-  margin-bottom: 20px;
   border: 1px solid rgba(0, 255, 255, 0.3);
-  transition: transform 0.3s;
-}
-
-.project-window:hover .project-preview {
-  transform: scale(1.03);
 }
 
 .project-name {
@@ -474,21 +467,19 @@ body::after {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--neon-magenta);
-  margin-bottom: 10px;
 }
 
 .project-desc {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.5;
-  margin-bottom: 20px;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .tag {
@@ -504,6 +495,7 @@ body::after {
   display: flex;
   justify-content: flex-end;
   gap: 15px;
+  margin-top: auto;
 }
 
 .action-link {
@@ -523,30 +515,10 @@ body::after {
   box-shadow: 0 15px 35px rgba(255, 0, 255, 0.15);
 }
 
-/* Sección: Contacto (ajustada sin formulario de envío) */
+/* Sección: Contacto */
 .contact-terminal {
   padding: 120px 5%;
   position: relative;
-}
-
-.section-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 80px;
-  position: relative;
-}
-
-.section-heading::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
 }
 
 .terminal-container {
@@ -596,7 +568,7 @@ body::after {
   font-weight: bold;
 }
 
-/* Botón de scroll hacia arriba: "flecha de propulsión" */
+/* Botón de scroll hacia arriba */
 .scroll-thruster {
   position: fixed;
   bottom: 30px;
@@ -629,7 +601,7 @@ body::after {
   transform: scale(1.1) translateY(-5px);
 }
 
-/* Pie de página: "marcador de ruta" */
+/* Pie de página */
 .footer-beacon {
   padding: 60px 5%;
   background-color: var(--dark-overlay);
@@ -673,7 +645,7 @@ body::after {
   letter-spacing: 1px;
 }
 
-/* Scrollbar personalizado neón */
+/* Scrollbar personalizado */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -693,7 +665,7 @@ body::after {
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-/* Responsive: Ajustes para móviles y tablets */
+/* Responsive */
 @media (max-width: 768px) {
   .nav-links {
     gap: 20px;
@@ -719,9 +691,13 @@ body::after {
     font-size: 2.2rem;
   }
 
+  .windows-grid {
+    grid-template-columns: 1fr;
+  }
+
   .project-window {
-    margin: 0 auto;
     max-width: 400px;
+    margin: 0 auto;
   }
 }
 
@@ -740,11 +716,18 @@ body::after {
     max-width: 300px;
     margin: 0 auto;
   }
+
+  .window-content {
+    padding: 20px;
+  }
+
+  .project-preview {
+    height: 180px;
+  }
 }
 </style>
 </head>
 <body>
-  <!-- Barra de navegación futurista -->
   <nav class="nav-futurist">
     <div class="nav-logo">ZYXLJS</div>
     <div class="nav-links">
@@ -755,7 +738,6 @@ body::after {
     </div>
   </nav>
 
-  <!-- Sección de bienvenida: Puerto de entrada -->
   <section id="landing" class="landing-port">
     <div class="landing-glow"></div>
     <h1 class="landing-title">
@@ -768,7 +750,6 @@ body::after {
     </div>
   </section>
 
-  <!-- Sección de habilidades: Módulos tecnológicos -->
   <section id="skills" class="skills-modules">
     <h2 class="section-heading">MÓDULOS TECNOLÓGICOS</h2>
     <div class="modules-grid">
@@ -805,7 +786,6 @@ body::after {
     </div>
   </section>
 
-  <!-- Sección de proyectos: Ventanas de código -->
   <section id="projects" class="projects-windows">
     <h2 class="section-heading">VENTANAS DE PROYECTOS</h2>
     <div class="windows-grid">
@@ -818,18 +798,17 @@ body::after {
         </div>
         <div class="window-content">
           <img src="https://o.uguu.se/npelSTSh.jpg" alt="Alya Bot" class="project-preview">
-          <div>
-            <h3 class="project-name">ALYABOT</h3>
-            <p class="project-desc">Bot inteligente para WhatsApp que automatiza tareas diarias: recordatorios, búsqueda de información y respuesta automática.</p>
-            <div class="project-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Baileys</span>
-              <span class="tag">WhatsApp</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/DevZyxlJs/AlyaBot-MD" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
-              <a href="https://wa.me/5492916450307" target="_blank" class="action-link"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
+          <h3 class="project-name">ALYABOT</h3>
+          <p class="project-desc">Bot inteligente para WhatsApp que automatiza tareas diarias: recordatorios, búsqueda de información y respuesta automática. Cuenta con integración con múltiples APIs y personalización de comandos por usuario.</p>
+          <div class="project-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Baileys</span>
+            <span class="tag">WhatsApp</span>
+            <span class="tag">API Integration</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/DevZyxlJs/AlyaBot-MD" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://wa.me/5492916450307" target="_blank" class="action-link"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -843,135 +822,105 @@ body::after {
         </div>
         <div class="window-content">
           <img src="https://i.ibb.co/nqNmkJ8J/1739060138407.png" alt="STELLAR API REST" class="project-preview">
-          <div>
-            <h3 class="project-name">STELLAR API REST</h3>
-            <p class="project-desc">API diseñada para integrar en bots o proyectos: endpoints de búsqueda de imágenes, generación de texto y datos de clima.</p>
-            <div class="project-tags">
-              <span class="tag">Express.js</span>
-              <span class="tag">REST API</span>
-              <span class="tag">Node.js</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/DevZyxlJs/stellar-api" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
-              <a href="https://api.stellarwa.xyz" target="_blank" class="action-link"><i class="fa-solid fa-book"></i></a>
-            </div>
+          <h3 class="project-name">STELLAR API REST</h3>
+          <p class="project-desc">API diseñada para integrar en bots o proyectos: endpoints de búsqueda de imágenes, generación de texto, datos de clima, conversión de monedas y más. Optimizada para rendimiento y seguridad con autenticación de tokens.</p>
+          <div class="project-tags">
+            <span class="tag">Express.js</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Authentication</span>
+            <span class="tag">Optimization</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/DevZyxlJs/stellar-api" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://api.stellarwa.xyz" target="_blank" class="action-link"><i class="fa-solid fa-book"></i></a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-<!-- Tercer proyecto para completar la cuadrícula -->
-<div class="project-window">
-  <div class="window-bar">
-    <div class="window-dot dot-red"></div>
-    <div class="window-dot dot-yellow"></div>
-    <div class="window-dot dot-green"></div>
-    <div class="window-title">zyxl-dashboard.exe</div>
-  </div>
-  <div class="window-content">
-    <img src="https://i.ibb.co/7VZ8X7t/1739060500123.png" alt="ZYXL DASHBOARD" class="project-preview">
-    <div>
-      <h3 class="project-name">ZYXL DASHBOARD</h3>
-      <p class="project-desc">Panel de control para monitorear bots y APIs: visualización de estadísticas, gestión de usuarios y configuración en tiempo real.</p>
-      <div class="project-tags">
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Express</span>
+  <section id="contact" class="contact-terminal">
+    <h2 class="section-heading">TERMINAL DE CONTACTO</h2>
+    <div class="terminal-container">
+      <div class="terminal-bar">
+        <div class="window-dot dot-red"></div>
+        <div class="window-dot dot-yellow"></div>
+        <div class="window-dot dot-green"></div>
+        <div class="terminal-title">zyxl-contacto.exe - [modo: activo]</div>
       </div>
-      <div class="project-actions">
-        <a href="https://github.com/DevZyxlJs/zyxl-dashboard" target="_blank" class="action-link"><i class="fa-brands fa-github"></i></a>
-        <a href="#" target="_blank" class="action-link"><i class="fa-solid fa-eye"></i></a>
+      <div class="terminal-content">
+        <p><span class="terminal-prompt">>_</span> Hola! Para contactarme directamente, usa mis redes sociales a continuación:</p>
+        <p><span class="terminal-prompt">>_</span> • WhatsApp: +54 9 291 645-0307</p>
+        <p><span class="terminal-prompt">>_</span> • GitHub: DevZyxlJs</p>
+        <p><span class="terminal-prompt">>_</span> • Puedes acceder a mis perfiles desde el pie de página de este sitio.</p>
+        <p><span class="terminal-prompt">>_</span> ¡Espero escucharte pronto!</p>
       </div>
     </div>
-  </div>
-</div>
-</div>
-</section>
+  </section>
 
-<!-- Sección de Contacto (completada sin formulario de envío, coherente con tu solicitud) -->
-<section id="contact" class="contact-terminal">
-  <h2 class="section-heading">TERMINAL DE CONTACTO</h2>
-  <div class="terminal-container">
-    <div class="terminal-bar">
-      <div class="window-dot dot-red"></div>
-      <div class="window-dot dot-yellow"></div>
-      <div class="window-dot dot-green"></div>
-      <div class="terminal-title">zyxl-contacto.exe - [modo: activo]</div>
+  <div class="scroll-thruster">
+    <i class="fa-solid fa-rocket"></i>
+  </div>
+
+  <footer class="footer-beacon">
+    <div class="beacon-logo">ZYXLJS - DESARROLLO DIGITAL</div>
+    <div class="beacon-links">
+      <a href="https://wa.me/5492916450307" target="_blank" class="beacon-link"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://github.com/DevZyxlJs" target="_blank" class="beacon-link"><i class="fa-brands fa-github"></i></a>
     </div>
-    <div class="terminal-content">
-      <p><span class="terminal-prompt">>_</span> Hola! Para contactarme directamente, usa mis redes sociales a continuación:</p>
-      <p><span class="terminal-prompt">>_</span> • WhatsApp: +54 9 291 645-0307</p>
-      <p><span class="terminal-prompt">>_</span> • GitHub: DevZyxlJs</p>
-      <p><span class="terminal-prompt">>_</span> • Puedes acceder a mis perfiles desde el pie de página de este sitio.</p>
-      <p><span class="terminal-prompt">>_</span> ¡Espero escucharte pronto!</p>
-    </div>
-  </div>
-</section>
+<p class="beacon-copyright">© 2025 DevZyxlJs - Todos Los Derechos Reservados.</p>
+  </footer>
 
-<!-- Botón de scroll hacia arriba: Flecha de propulsión -->
-<div class="scroll-thruster">
-  <i class="fa-solid fa-rocket"></i>
-</div>
+  <script>
+    const scrollThruster = document.querySelector('.scroll-thruster');
+    const skillModules = document.querySelectorAll('.skill-module');
+    const projectWindows = document.querySelectorAll('.project-window');
+    const terminalContainer = document.querySelector('.terminal-container');
+    const ctaButtons = document.querySelectorAll('.cta-btn');
 
-<!-- Pie de página: "marcador de ruta" (arreglado el cierre de etiquetas) -->
-<footer class="footer-beacon">
-  <div class="beacon-logo">ZYXLJS - DESARROLLO DIGITAL</div>
-  <div class="beacon-links">
-    <a href="https://wa.me/5492916450307" target="_blank" class="beacon-link"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="https://github.com/DevZyxlJs" target="_blank" class="beacon-link"><i class="fa-brands fa-github"></i></a>
-  </div>
-  <p class="beacon-copyright">© 2025 DevZyxlJs - Todos Los Derechos Reservados.</p>
-</footer>
+    const isInView = (element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight - 100 && rect.bottom > 0;
+    };
 
-<!-- Scripts interactivos (arreglados para que no referencien el formulario que eliminaste) -->
-<script>
-  const scrollThruster = document.querySelector('.scroll-thruster');
-  const skillModules = document.querySelectorAll('.skill-module');
-  const projectWindows = document.querySelectorAll('.project-window');
-  const terminalContainer = document.querySelector('.terminal-container');
-  const ctaButtons = document.querySelectorAll('.cta-btn');
+    const animateOnScroll = () => {
+      skillModules.forEach(module => {
+        if (isInView(module)) module.classList.add('show');
+      });
 
-  const isInView = (element) => {
-    const rect = element.getBoundingClientRect();
-    return rect.top < window.innerHeight - 100 && rect.bottom > 0;
-  };
+      projectWindows.forEach(window => {
+        if (isInView(window)) window.classList.add('show');
+      });
 
-  const animateOnScroll = () => {
-    skillModules.forEach(module => {
-      if (isInView(module)) module.classList.add('show');
+      if (isInView(terminalContainer)) terminalContainer.classList.add('show');
+
+      if (window.scrollY > 500) {
+        scrollThruster.classList.add('show');
+      } else {
+        scrollThruster.classList.remove('show');
+      }
+    };
+
+    scrollThruster.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
 
-    projectWindows.forEach(window => {
-      if (isInView(window)) window.classList.add('show');
+    ctaButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTimeout(() => {
+          btn.style.animation = 'none';
+          btn.offsetHeight;
+          btn.style.animation = null;
+        }, 600);
+      });
     });
 
-    if (isInView(terminalContainer)) terminalContainer.classList.add('show');
-
-    if (window.scrollY > 500) {
-      scrollThruster.classList.add('show');
-    } else {
-      scrollThruster.classList.remove('show');
-    }
-  };
-
-  scrollThruster.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  ctaButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setTimeout(() => {
-        btn.style.animation = 'none';
-        btn.offsetHeight;
-        btn.style.animation = null;
-      }, 600);
-    });
-  });
-
-  window.addEventListener('load', animateOnScroll);
-  window.addEventListener('scroll', animateOnScroll);
-</script>
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
 </body>
 </html>
