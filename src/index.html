@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EliasarYT - Portafolio Digital</title>
+<link rel="icon" href="https://github.com/Eliasar54.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+
+/* Fondo 3D con partículas (simulado con gradientes y formas) */
+body {
+background: linear-gradient(135deg, #0f101e, #16213E, #1A1A2E);
+color: #FFF;
+overflow-x: hidden;
+animation: fadeInPage 1.5s ease-in-out;
+position: relative;
+}
+
+body::before {
+content: "";
+position: fixed;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%),
+            radial-gradient(circle at 20% 30%, rgba(255, 0, 127, 0.03) 0%, transparent 60%);
+z-index: -2;
+animation: rotateBackground 30s linear infinite;
+}
+
+body::after {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(26,26,46,0.3), rgba(22,33,62,0.3));
+backdrop-filter: blur(2px);
+z-index: -1;
+animation: backgroundPulse 8s infinite ease-in-out;
+}
+
+/* Animaciones globales mejoradas */
+@keyframes rotateBackground {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+@keyframes backgroundPulse {
+0%, 100% { filter: brightness(1); }
+50% { filter: brightness(1.2); }
+}
+
+@keyframes fadeInPage {
+from { opacity: 0; transform: scale(0.98); }
+to { opacity: 1; transform: scale(1); }
+}
+
+/* Barra de navegación con efecto glassmorfismo avanzado */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 40px;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+background: rgba(10, 10, 20, 0.4);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+transform: translateY(0);
+}
+
+.navbar.hidden {
+transform: translateY(-100%);
+}
+
+.navbar.scrolled {
+background: rgba(10, 10, 20, 0.85);
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.navbar h1 {
+font-size: 1.8rem;
+font-weight: 700;
+background: linear-gradient(45deg, #00D4FF, #FF007F);
+background-size: 200%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: gradientShift 4s ease infinite;
+cursor: pointer;
+transition: transform 0.3s;
+}
+
+.navbar h1:hover {
+transform: scale(1.05);
+}
+
+.nav-links {
+display: flex;
+gap: 30px;
+}
+
+.nav-link {
+color: #EEE;
+text-decoration: none;
+font-size: 1.1rem;
+font-weight: 400;
+position: relative;
+transition: all 0.3s;
+}
+
+.nav-link::after {
+content: "";
+position: absolute;
+bottom: -6px;
+left: 0;
+width: 0;
+height: 3px;
+background: linear-gradient(90deg, #00D4FF, #FF007F);
+border-radius: 3px;
+transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+color: #00D4FF;
+transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+width: 100%;
+}
+
+/* Sección Hero con efecto parallax y texto dinámico */
+.hero {
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+flex-direction: column;
+gap: 30px;
+padding: 0 20px;
+position: relative;
+overflow: hidden;
+}
+
+.hero::before {
+content: "";
+position: absolute;
+width: 120%;
+height: 120%;
+background: url('https://i.ibb.co/60XYyj1R/20250208-174617.jpg') center/cover no-repeat;
+opacity: 0.1;
+filter: blur(4px);
+transform: scale(1.05);
+animation: heroParallax 20s infinite ease-in-out alternate;
+}
+
+@keyframes heroParallax {
+0% { transform: scale(1.05) translate(0, 0); }
+100% { transform: scale(1.1) translate(-10px, -10px); }
+}
+
+.hero-content {
+animation: slideUp 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+opacity: 0;
+transform: translateY(60px);
+z-index: 1;
+}
+
+.hero h1 {
+font-size: 4.5rem;
+font-weight: 700;
+background: linear-gradient(45deg, #00D4FF, #FF007F, #FFEA00, #00FF90);
+background-size: 400%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: gradientShift 6s ease infinite, textPulse 3s infinite ease-in-out alternate;
+margin-bottom: 15px;
+}
+
+@keyframes gradientShift {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+@keyframes textPulse {
+0% { transform: scale(1); }
+100% { transform: scale(1.03); }
+}
+
+.hero p {
+font-size: 1.4rem;
+color: #DDD;
+max-width: 800px;
+line-height: 1.6;
+position: relative;
+}
+
+.hero p::after {
+content: "|";
+position: absolute;
+right: -15px;
+bottom: 0;
+color: #00D4FF;
+animation: cursorBlink 1.5s infinite;
+}
+
+@keyframes cursorBlink {
+0%, 100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+.btn {
+display: inline-block;
+padding: 14px 30px;
+background: linear-gradient(45deg, #00D4FF, #FF007F);
+background-size: 200%;
+color: #FFF;
+text-decoration: none;
+border-radius: 50px;
+font-size: 1.3rem;
+font-weight: 600;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+z-index: 1;
+}
+
+.btn:hover {
+background-position: right;
+transform: scale(1.08);
+box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4), 0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+.hero-img {
+width: 420px;
+max-width: 90%;
+border-radius: 20px;
+opacity: 0;
+animation: fadeInScale 2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+animation-delay: 1s;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+border: 4px solid rgba(0, 212, 255, 0.2);
+z-index: 1;
+}
+
+@keyframes fadeInScale {
+from { opacity: 0; transform: scale(0.9); }
+to { opacity: 1; transform: scale(1); }
+}
+
+/* Secciones comunes: About, Projects, Contact */
+.section {
+padding: 120px 40px 100px;
+text-align: center;
+opacity: 0;
+transform: translateY(50px);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+.section h2 {
+font-size: 3rem;
+font-weight: 700;
+margin-bottom: 30px;
+color: #00D4FF;
+position: relative;
+display: inline-block;
+}
+
+.section h2::after {
+content: "";
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 4px;
+background: linear-gradient(90deg, #00D4FF, #FF007F);
+border-radius: 4px;
+}
+
+.section p {
+font-size: 1.2rem;
+color: #DDD;
+max-width: 900px;
+margin: 0 auto 40px;
+line-height: 1.7;
+}
+
+/* Sección Sobre Mí - Habilidades con efecto hover 3D */
+.skills {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 35px;
+margin-top: 50px;
+}
+
+.skill {
+background: rgba(255, 255, 255, 0.08);
+padding: 30px;
+border-radius: 15px;
+text-align: center;
+width: 180px;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+opacity: 0;
+transform: translateY(50px);
+cursor: pointer;
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.skill.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+.skill:hover {
+background: rgba(255, 255, 255, 0.15);
+transform: translateY(-10px) scale(1.05);
+box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2), 0 0 15px rgba(255, 0, 127, 0.1);
+border-color: rgba(0, 212, 255, 0.3);
+}
+
+.skill i {
+font-size: 3.5rem;
+color: #00D4FF;
+margin-bottom: 15px;
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill:hover i {
+transform: rotate(360deg) scale(1.1);
+color: #FF007F;
+}
+
+.skill h3 {
+font-size: 1.2rem;
+font-weight: 600;
+color: #FFF;
+}
+
+/* Sección Proyectos - Tarjetas con efecto flip (frontal/trasero) */
+.project-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 40px;
+margin-top: 60px;
+}
+
+.project {
+background: rgba(255, 255, 255, 0.08);
+border-radius: 20px;
+width: 330px;
+height: 420px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+opacity: 0;
+transform: translateY(50px);
+perspective: 1000px;
+}
+
+.project.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+.project-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+transform-style: preserve-3d;
+border-radius: 20px;
+}
+
+.project:hover .project-inner {
+transform: rotateY(180deg);
+}
+
+.project-front, .project-back {
+position: absolute;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+border-radius: 20px;
+padding: 25px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+}
+
+.project-front {
+background: rgba(255, 255, 255, 0.08);
+border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.project-back {
+background: rgba(255, 255, 255, 0.12);
+border: 1px solid rgba(255, 0, 127, 0.1);
+transform: rotateY(180deg);
+}
+
+.project img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 20px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+animation: zoomIn 1s forwards;
+}
+
+@keyframes zoomIn {
+from { transform: scale(0.9); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+
+.project h3 {
+font-size: 1.8rem;
+font-weight: 600;
+color: #00D4FF;
+margin-bottom: 10px;
+}
+
+.project-back h3 {
+color: #FF007F;
+}
+
+.project p {
+font-size: 1.1rem;
+color: #DDD;
+margin-bottom: 20px;
+line-height: 1.6;
+}
+
+.project-icons {
+font-size: 1.8rem;
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+.project-front .project-icons {
+color: #00D4FF;
+}
+
+.project-back .project-icons {
+color: #FF007F;
+}
+
+.project-back .btn-small {
+display: inline-block;
+padding: 10px 25px;
+background: linear-gradient(45deg, #FF007F, #00D4FF);
+background-size: 200%;
+color: #FFF;
+text-decoration: none;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: 600;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+margin-top: 10px;
+}
+
+.project-back .btn-small:hover {
+background-position: right;
+transform: scale(1.05);
+box-shadow: 0 5px 15px rgba(255, 0, 127, 0.2);
+}
+
+/* Sección Contacto con formulario estilizado y animaciones */
+.contact form {
+max-width: 650px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 25px;
+background: rgba(255, 255, 255, 0.08);
+padding: 40px;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.contact input,
+.contact textarea {
+background: rgba(255, 255, 255, 0.05);
+border: none;
+border-bottom: 3px solid rgba(0, 212, 255, 0.3);
+color: #FFF;
+padding: 15px 20px;
+width: 100%;
+font-size: 1.1rem;
+border-radius: 10px 10px 0 0;
+transition: all 0.4s;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+color: #BBB;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+border-bottom: 3px solid #00D4FF;
+outline: none;
+background: rgba(255, 255, 255, 0.1);
+transform: translateY(-2px);
+}
+
+.contact textarea {
+height: 150px;
+resize: none;
+border-radius: 10px 10px 0 0;
+}
+
+.contact button {
+padding: 14px 30px;
+background: linear-gradient(45deg, #00D4FF, #FF007F);
+background-size: 200%;
+color: #FFF;
+border: none;
+border-radius: 50px;
+font-size: 1.3rem;
+font-weight: 600;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+cursor: pointer;
+}
+
+.contact button:hover {
+background-position: right;
+transform: scale(1.05);
+box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4), 0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+/* Botón scroll to top con animación */
+.scroll-to-top {
+position: fixed;
+bottom: 40px;
+right: 40px;
+background: linear-gradient(45deg, #00D4FF, #FF007F);
+background-size: 200%;
+color: #FFF;
+padding: 15px 20px;
+border-radius: 50%;
+font-size: 1.5rem;
+display: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+z-index: 1001;
+box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.scroll-to-top.show {
+display: flex;
+animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-to-top:hover {
+background-position: right;
+transform: scale(1.15);
+box-shadow: 0 12px 35px rgba(0, 212, 255, 0.5);
+}
+
+/* Pie de página con efecto de desvanecimiento */
+.footer {
+background: rgba(10, 10, 20, 0.3);
+padding: 40px 20px;
+text-align: center;
+margin-top: 80px;
+border-top: 1px solid rgba(0, 212, 255, 0.1);
+animation: fadeInFooter 1.5s forwards;
+opacity: 0;
+}
+
+@keyframes fadeInFooter {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.footer p {
+font-size: 1.1rem;
+color: #CCC;
+margin-bottom: 20px;
+font-weight: 300;
+}
+
+.footer .social-icons {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin-top: 20px;
+}
+
+.footer .social-icons a {
+color: #CCC;
+font-size: 2rem;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+position: relative;
+}
+
+.footer .social-icons a::after {
+content: "";
+position: absolute;
+bottom: -8px;
+left: 0;
+width: 0;
+height: 2px;
+background: linear-gradient(90deg, #00D4FF, #FF007F);
+border-radius: 2px;
+transition: width 0.4s;
+}
+
+.footer .social-icons a:hover {
+color: #00D4FF;
+transform: translateY(-5px);
+}
+
+.footer .social-icons a:hover::after {
+width: 100%;
+}
+
+/* Scrollbar personalizado más estilizado */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: rgba(10, 10, 20, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, #00D4FF, #FF007F);
+border-radius: 5px;
+border: 2px solid rgba(10, 10, 20, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(180deg, #009ACD, #cc0069);
+}
+
+/* Responsive: Ajustes para móviles y tablets */
+@media (max-width: 992px) {
+.hero h1 {
+font-size: 3.5rem;
+}
+
+.section h2 {
+font-size: 2.5rem;
+}
+}
+
+@media (max-width: 768px) {
+.navbar {
+padding: 15px 20px;
+flex-direction: column;
+gap: 15px;
+}
+
+.nav-links {
+gap: 20px;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.hero h1 {
+font-size: 2.8rem;
+}
+
+.hero p {
+font-size: 1.2rem;
+}
+
+.section {
+padding: 100px 20px 80px;
+}
+
+.contact form {
+padding: 30px 20px;
+}
+
+.scroll-to-top {
+bottom: 20px;
+right: 20px;
+padding: 12px 17px;
+font-size: 1.2rem;
+}
+
+.footer .social-icons {
+gap: 20px;
+}
+
+.footer .social-icons a {
+font-size: 1.7rem;
+}
+}
+
+@media (max-width: 480px) {
+.hero h1 {
+font-size: 2.2rem;
+}
+
+.project {
+width: 90%;
+height: auto;
+}
+
+.project-inner {
+height: 450px;
+}
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+<h1>EliasarYT</h1>
+<div class="nav-links">
+<a href="#home" class="nav-link">Inicio</a>
+<a href="#about" class="nav-link">Sobre mí</a>
+<a href="#projects" class="nav-link">Proyectos</a>
+<a href="#contact" class="nav-link">Contacto</a>
+</div>
+</div>
+
+<section id="home" class="hero section">
+<div class="hero-content">
+<h1>Hola, Soy EliasarYT</h1>
+<p>Desarrollador de bots, APIs y soluciones digitales innovadoras</p>
+<a href="#projects" class="btn">Explorar Proyectos</a>
+</div>
+<img src="https://i.ibb.co/60XYyj1R/20250208-174617.jpg" alt="EliasarYT" class="hero-img">
+</section>
+
+<section id="about" class="section about">
+<h2>Sobre Mí</h2>
+<p>Hola, soy <strong>EliasarYT</strong>, desarrollador con experiencia en JavaScript, creación de bots automatizados y desarrollo de APIs eficientes. Me apasiona transformar ideas en soluciones funcionales y escalables, siempre aprendiendo nuevas tecnologías para mejorar mis habilidades y ofrecer resultados de calidad.</p>
+
+<div class="skills">
+<div class="skill">
+<i class="fa-brands fa-html5"></i>
+<h3>Frontend</h3>
+</div>
+<div class="skill">
+<i class="fa-solid fa-robot"></i>
+<h3>Creador de Bots</h3>
+</div>
+<div class="skill">
+<i class="fa-solid fa-code"></i>
+<h3>APIs</h3>
+</div>
+<div class="skill">
+<i class="fa-brands fa-js"></i>
+<h3>JavaScript</h3>
+</div>
+<div class="skill">
+<i class="fa-brands fa-node-js"></i>
+<h3>Node.js</h3>
+</div>
+<div class="skill">
+<i class="fa-brands fa-github"></i>
+<h3>Git & GitHub</h3>
+</div>
+</div>
+</section>
+
+<section id="projects" class="section projects">
+<h2>Mis Proyectos</h2>
+<p>Aquí te muestro algunos de mis trabajos más destacados — soluciones diseñadas para automatizar tareas, mejorar la comunicación y facilitar la integración entre plataformas.</p>
+
+<div class="project-container">
+<div class="project">
+<div class="project-inner">
+<div class="project-front">
+<img src="https://i.ibb.co/Gf847T2w/da27fb721c7dbe513bd5e08f22fdbcb7.jpg" alt="ANSIBOT">
+<h3>ANSIBOT</h3>
+<p>Un bot inteligente para automatizar tareas diarias en WhatsApp</p>
+<div class="project-icons">
+<i class="fa-brands fa-whatsapp"></i>
+<i class="fa-brands fa-node-js"></i>
+<i class="fa-brands fa-github"></i>
+</div>
+</div>
+<div class="project-back">
+<h3>ANSIBOT</h3>
+<p>Funcionalidades: Gestión de tareas, recordatorios, búsqueda de información y respuesta automática a mensajes frecuentes. Desarrollado con Node.js y Baileys.</p>
+<div class="project-icons">
+<i class="fa-brands fa-whatsapp"></i>
+<i class="fa-brands fa-node-js"></i>
+<i class="fa-brands fa-github"></i>
+</div>
+<a href="https://github.com/Eliasar54/ansibot" target="_blank" class="btn-small">Ver Código</a>
+</div>
+</div>
+</div>
+
+<div class="project">
+<div class="project-inner">
+<div class="project-front">
+<img src="https://i.ibb.co/0pn7zDpw/e0b35b8fa18982021d776d98cb2aacb3.jpg" alt="ALFA-TG">
+<h3>ALFA-TG</h3>
+<p>Bot para Telegram con múltiples funciones útiles</p>
+<div class="project-icons">
+<i class="fa-brands fa-telegram"></i>
+<i class="fa-brands fa-node-js"></i>
+<i class="fa-solid fa-robot"></i>
+</div>
+</div>
+<div class="project-back">
+<h3>ALFA-TG</h3>
+<p>Funcionalidades: Descarga de medios, búsqueda de noticias, juegos mini, gestión de grupos y comandos personalizados. Desarrollado con Telegraf.</p>
+<div class="project-icons">
+<i class="fa-brands fa-telegram"></i>
+<i class="fa-brands fa-node-js"></i>
+<i class="fa-solid fa-robot"></i>
+</div>
+<a href="https://github.com/Eliasar54/alfa-tg" target="_blank" class="btn-small">Ver Código</a>
+</div>
+</div>
+</div>
+
+<div class="project">
+<div class="project-inner">
+<div class="project-front">
+<img src="https://i.ibb.co/nqNmkJ8J/1739060138407.png" alt="ELIASARYT-API">
+<h3>ELIASARYT-API</h3>
+<p>API diseñada para integrar en bots o proyectos propios</p>
+<div class="project-icons">
+<i class="fa-brands fa-github"></i>
+<i class="fa-brands fa-js"></i>
+<i class="fa-solid fa-rocket"></i>
+</div>
+</div>
+<div class="project-back">
+<h3>ELIASARYT-API</h3>
+<p>Endpoints: Búsqueda de imágenes, generación de texto, datos de clima y integración con plataformas de mensajería. Desarrollada con Express.js.</p>
+<div class="project-icons">
+<i class="fa-brands fa-github"></i>
+<i class="fa-brands fa-js"></i>
+<i class="fa-solid fa-rocket"></i>
+</div>
+<a href="https://github.com/Eliasar54/eliasaryt-api" target="_blank" class="btn-small">Ver Documentación</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="section contact">
+<h2>Contactarme</h2>
+<p>¿Tienes una idea o proyecto en mente? Escríbeme y trabajemos juntos para hacerlo realidad — responderé lo antes posible!</p>
+
+<form action="#" method="POST">
+<input type="text" name="name" placeholder="Tu nombre" required>
+<input type="email" name="email" placeholder="Tu correo electrónico" required>
+<input type="text" name="subject" placeholder="Asunto del mensaje" required>
+<textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+<button type="submit">Enviar Mensaje</button>
+</form>
+</section>
+
+<div class="scroll-to-top">
+<i class="fa-solid fa-arrow-up"></i>
+</div>
+
+<footer class="footer">
+<p>ᵇʸ ᵉˡᶤᵃˢᵃʳʸᵗ — © 2025 Todos los derechos reservados</p>
+<div class="social-icons">
+<a href="https://t.me/EliasarYT" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+<a href="https://wa.me/50582340051" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://github.com/Eliasar54" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+</footer>
+
+<script>
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+const scrollToTop = document.querySelector('.scroll-to-top');
+const sections = document.querySelectorAll('.section');
+const animatedElements = document.querySelectorAll('.skill, .project');
+
+// Efecto navbar: mostrar/ocultar al hacer scroll
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+
+  // Ocultar navbar al bajar, mostrar al subir
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    navbar.classList.add('hidden');
+  } else {
+    navbar.classList.remove('hidden');
+  }
+
+  // Efecto scrolled en navbar
+  if (currentScroll > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  // Mostrar/ocultar botón scroll to top
+  if (currentScroll > 300) {
+    scrollToTop.classList.add('show');
+  } else {
+    scrollToTop.classList.remove('show');
+  }
+
+  // Animar secciones y elementos al entrar en vista
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 150) {
+      section.classList.add('show');
+    }
+  });
+
+  animatedElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+
+  lastScroll = currentScroll;
+});
+
+// Función para ir al inicio al hacer clic en el título
+document.querySelector('.navbar h1').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Función para ir arriba al hacer clic en el botón
+scrollToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Animar elementos al cargar la página (si están en vista)
+window.addEventListener('load', () => {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 150) {
+      section.classList.add('show');
+    }
+  });
+
+  animatedElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+
+  // Animar footer
+  document.querySelector('.footer').classList.add('show');
+});
+
+// Script de Cloudflare (manteniendo el original para funcionalidad)
+(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b22cd6768c7995d',t:'MTc2NjQzOTg4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+</script>
+</body>
+</html>
