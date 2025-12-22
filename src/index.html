@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>DevZyxlJs - WebSite</title>
 <link rel="icon" href="https://github.com/DevZyxlJs.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -74,7 +74,7 @@ body::after {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 5%;
+  padding: 15px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,7 +87,7 @@ body::after {
 
 .nav-logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -115,12 +115,12 @@ body::after {
 
 .nav-links {
   display: flex;
-  gap: 35px;
+  gap: 25px;
 }
 
 .nav-link {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   color: #ddd;
@@ -157,12 +157,13 @@ body::after {
   text-align: center;
   padding: 0 5%;
   position: relative;
+  padding-top: 60px;
 }
 
 .landing-glow {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 255, 255, 0.15), transparent 70%);
   z-index: 0;
@@ -176,7 +177,7 @@ body::after {
 
 .landing-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 4.5rem;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
@@ -211,13 +212,14 @@ body::after {
 }
 
 .landing-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: #ddd;
   max-width: 800px;
   margin-bottom: 40px;
   z-index: 1;
   animation: subtitleFade 1.5s forwards 1.2s;
   opacity: 0;
+  padding: 0 10px;
 }
 
 @keyframes subtitleFade {
@@ -229,13 +231,15 @@ body::after {
   display: inline-flex;
   gap: 20px;
   z-index: 1;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cta-btn {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   font-weight: 600;
-  padding: 15px 35px;
+  padding: 12px 30px;
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.4s;
@@ -293,16 +297,16 @@ body::after {
 }
 
 .skills-modules {
-  padding: 120px 5%;
+  padding: 100px 5%;
   position: relative;
 }
 
 .section-heading {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   position: relative;
 }
 
@@ -389,17 +393,18 @@ body::after {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.5;
+  padding: 0 5px;
 }
 
 .projects-windows {
-  padding: 120px 5%;
+  padding: 100px 5%;
   background-color: var(--dark-overlay);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .windows-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
@@ -414,6 +419,9 @@ body::after {
   opacity: 0;
   transform: scale(0.95);
   position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .project-window.show {
@@ -464,7 +472,7 @@ body::after {
 
 .project-name {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 600;
   color: var(--neon-magenta);
 }
@@ -473,6 +481,7 @@ body::after {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.5;
+  padding: 0 5px;
 }
 
 .project-tags {
@@ -517,7 +526,7 @@ body::after {
 
 /* Sección: Contacto */
 .contact-terminal {
-  padding: 120px 5%;
+  padding: 100px 5%;
   position: relative;
 }
 
@@ -532,6 +541,8 @@ body::after {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s;
+  width: 100%;
+  max-width: 600px;
 }
 
 .terminal-container.show {
@@ -558,9 +569,10 @@ body::after {
 .terminal-content {
   padding: 25px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--neon-yellow);
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 .terminal-prompt {
@@ -574,14 +586,14 @@ body::after {
   bottom: 30px;
   right: 30px;
   background-color: var(--neon-magenta);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #000;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   box-shadow: 0 0 15px var(--neon-magenta), 0 0 30px var(--neon-magenta);
   cursor: pointer;
   transition: all 0.4s;
@@ -611,7 +623,7 @@ body::after {
 
 .beacon-logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 800;
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
   -webkit-background-clip: text;
@@ -627,7 +639,7 @@ body::after {
 }
 
 .beacon-link {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   color: #ddd;
   transition: all 0.3s;
 }
@@ -639,10 +651,11 @@ body::after {
 }
 
 .beacon-copyright {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: #bbb;
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
+  padding: 0 10px;
 }
 
 /* Scrollbar personalizado */
@@ -665,7 +678,7 @@ body::after {
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-/* Responsive */
+/* Responsive ajustes finos */
 @media (max-width: 768px) {
   .nav-links {
     gap: 20px;
@@ -675,46 +688,19 @@ body::after {
     font-size: 0.9rem;
   }
 
-  .landing-title {
-    font-size: 3rem;
-  }
-
-  .landing-subtitle {
-    font-size: 1.2rem;
-  }
-
   .landing-cta {
     flex-direction: column;
-  }
-
-  .section-heading {
-    font-size: 2.2rem;
-  }
-
-  .windows-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-window {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-futurist {
-    flex-direction: column;
     gap: 15px;
-    padding: 15px 5%;
-  }
-
-  .landing-title {
-    font-size: 2.2rem;
-  }
-
-  .skill-module {
+    width: 100%;
     max-width: 300px;
-    margin: 0 auto;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  .projects-windows {
+    padding: 80px 5%;
   }
 
   .window-content {
@@ -723,6 +709,56 @@ body::after {
 
   .project-preview {
     height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-futurist {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 5%;
+  }
+
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .landing-glow {
+    width: 400px;
+    height: 400px;
+  }
+
+  .skills-modules {
+    padding: 80px 5%;
+  }
+
+  .modules-grid {
+    gap: 25px;
+  }
+
+  .skill-module {
+    padding: 35px 15px;
+  }
+
+  .skill-icon {
+    font-size: 3rem;
+  }
+
+  .terminal-content {
+    padding: 20px;
+  }
+
+  .scroll-thruster {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .beacon-links {
+    gap: 25px;
   }
 }
 </style>
@@ -841,86 +877,86 @@ body::after {
   </section>
 
   <section id="contact" class="contact-terminal">
-    <h2 class="section-heading">TERMINAL DE CONTACTO</h2>
-    <div class="terminal-container">
-      <div class="terminal-bar">
-        <div class="window-dot dot-red"></div>
-        <div class="window-dot dot-yellow"></div>
-        <div class="window-dot dot-green"></div>
-        <div class="terminal-title">zyxl-contacto.exe - [modo: activo]</div>
-      </div>
-      <div class="terminal-content">
-        <p><span class="terminal-prompt">>_</span> Hola! Para contactarme directamente, usa mis redes sociales a continuación:</p>
-        <p><span class="terminal-prompt">>_</span> • WhatsApp: +54 9 291 645-0307</p>
-        <p><span class="terminal-prompt">>_</span> • GitHub: DevZyxlJs</p>
-        <p><span class="terminal-prompt">>_</span> • Puedes acceder a mis perfiles desde el pie de página de este sitio.</p>
-        <p><span class="terminal-prompt">>_</span> ¡Espero escucharte pronto!</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="scroll-thruster">
-    <i class="fa-solid fa-rocket"></i>
+ <h2 class="section-heading">TERMINAL DE CONTACTO</h2>
+<div class="terminal-container">
+  <div class="terminal-bar">
+    <div class="window-dot dot-red"></div>
+    <div class="window-dot dot-yellow"></div>
+    <div class="window-dot dot-green"></div>
+    <div class="terminal-title">zyxl-contacto.exe - [modo: activo]</div>
   </div>
+  <div class="terminal-content">
+    <p><span class="terminal-prompt">>_</span> Hola! Para contactarme directamente, usa mis redes sociales a continuación:</p>
+    <p><span class="terminal-prompt">>_</span> • WhatsApp: +54 9 291 645-0307</p>
+    <p><span class="terminal-prompt">>_</span> • GitHub: DevZyxlJs</p>
+    <p><span class="terminal-prompt">>_</span> • Puedes acceder a mis perfiles desde el pie de página de este sitio.</p>
+    <p><span class="terminal-prompt">>_</span> ¡Espero escucharte pronto!</p>
+  </div>
+</div>
+</section>
 
-  <footer class="footer-beacon">
-    <div class="beacon-logo">ZYXLJS - STELLAR WA</div>
-    <div class="beacon-links">
-      <a href="https://wa.me/5492916450307" target="_blank" class="beacon-link"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://github.com/DevZyxlJs" target="_blank" class="beacon-link"><i class="fa-brands fa-github"></i></a>
-    </div>
+<div class="scroll-thruster">
+  <i class="fa-solid fa-rocket"></i>
+</div>
+
+<footer class="footer-beacon">
+  <div class="beacon-logo">ZYXLJS - STELLAR WA</div>
+  <div class="beacon-links">
+    <a href="https://wa.me/5492916450307" target="_blank" class="beacon-link"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://github.com/DevZyxlJs" target="_blank" class="beacon-link"><i class="fa-brands fa-github"></i></a>
+  </div>
 <p class="beacon-copyright">© 2025 DevZyxlJs - Todos Los Derechos Reservados.</p>
-  </footer>
+</footer>
 
-  <script>
-    const scrollThruster = document.querySelector('.scroll-thruster');
-    const skillModules = document.querySelectorAll('.skill-module');
-    const projectWindows = document.querySelectorAll('.project-window');
-    const terminalContainer = document.querySelector('.terminal-container');
-    const ctaButtons = document.querySelectorAll('.cta-btn');
+<script>
+  const scrollThruster = document.querySelector('.scroll-thruster');
+  const skillModules = document.querySelectorAll('.skill-module');
+  const projectWindows = document.querySelectorAll('.project-window');
+  const terminalContainer = document.querySelector('.terminal-container');
+  const ctaButtons = document.querySelectorAll('.cta-btn');
 
-    const isInView = (element) => {
-      const rect = element.getBoundingClientRect();
-      return rect.top < window.innerHeight - 100 && rect.bottom > 0;
-    };
+  const isInView = (element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight - 100 && rect.bottom > 0;
+  };
 
-    const animateOnScroll = () => {
-      skillModules.forEach(module => {
-        if (isInView(module)) module.classList.add('show');
-      });
-
-      projectWindows.forEach(window => {
-        if (isInView(window)) window.classList.add('show');
-      });
-
-      if (isInView(terminalContainer)) terminalContainer.classList.add('show');
-
-      if (window.scrollY > 500) {
-        scrollThruster.classList.add('show');
-      } else {
-        scrollThruster.classList.remove('show');
-      }
-    };
-
-    scrollThruster.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+  const animateOnScroll = () => {
+    skillModules.forEach(module => {
+      if (isInView(module)) module.classList.add('show');
     });
 
-    ctaButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setTimeout(() => {
-          btn.style.animation = 'none';
-          btn.offsetHeight;
-          btn.style.animation = null;
-        }, 600);
-      });
+    projectWindows.forEach(window => {
+      if (isInView(window)) window.classList.add('show');
     });
 
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-  </script>
+    if (isInView(terminalContainer)) terminalContainer.classList.add('show');
+
+    if (window.scrollY > 500) {
+      scrollThruster.classList.add('show');
+    } else {
+      scrollThruster.classList.remove('show');
+    }
+  };
+
+  scrollThruster.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(() => {
+        btn.style.animation = 'none';
+        btn.offsetHeight;
+        btn.style.animation = null;
+      }, 600);
+    });
+  });
+
+  window.addEventListener('load', animateOnScroll);
+  window.addEventListener('scroll', animateOnScroll);
+</script>
 </body>
 </html>
