@@ -145,7 +145,7 @@ const commands = [
     // Info
     { "name": "allmenu", "desc": "Muestra la lista de comandos.", "alias": ["/allmenu", "/menu", "/help"], "category": "info", "uso": "_<category>_" },
     { "name": "ayuda", "desc": "Muestra información detallada sobre un comando específico.", "alias": ["/ayuda"], "category": "info", "uso": "_<comando>_" },
-    {"name": "infobot", "desc": "Muestra la información del socket.", "alias": ["/infobot", "/infosocket"], "category": "info"},
+    {"name": "infobot", "desc": "Muestra la información del socket.", "alias": ["/infobot", "/infosocket", "/info"], "category": "info"},
     {"name": "creador", "desc": "Muestra el creador del socket.", "alias": ["/creador", "/owner"], "category": "info"},
     {"name": "ping", "desc": "Muestra la velocidad del Bot.", "alias": ["/ping", "/p"], "category": "info"},
     {"name": "report", "desc": "Envia un mensaje de reporte al Staff.", "alias": ["/report", "/reporte"], "category": "info", "uso": "_<error>_"},
@@ -199,6 +199,8 @@ const commands = [
     {"name": "bots", "desc": "Muestra el número de sockets conectados.", "alias": ["/bots", "/sockets"], "category": "sockets"},
     {"name": "logout", "desc": "Cierra la sesión del socket.", "alias": ["/logout"], "category": "sockets"},
     {"name": "code", "desc": "Vincular un nuevo socket a tu número.", "alias": ["/code"], "category": "sockets"},
+    {"name": "codepremium", "desc": "Vincular un nuevo socket de tipo prem a tu número.", "alias": ["/codepremium"], "category": "sockets", "uso": "_<token>_" },
+    {"name": "codemod", "desc": "Vincular un nuevo socket de tipo mod a tu número.", "alias": ["/codemod"], "category": "sockets", "uso": "_<token>_" },
     {"name": "self", "desc": "Haz privado o público tu socket.", "alias": ["/self"], "category": "sockets", "uso": "_<on|off>_"},
     { "name": "setbanner", "desc": "Cambiar el banner del menu.", "alias": ["/setbanner", "/setmenubanner"], "category": "sockets" },
     { "name": "seticon", "desc": "Cambiar el icon del socket.", "alias": ["/seticon"], "category": "sockets" },
