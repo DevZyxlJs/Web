@@ -142,6 +142,23 @@ const commands = [
     // IA
     {"name": "ia", "desc": "Realiza una petición a chatgpt.", "alias": ["/ia", "/chatgpt"], "category": "ia", "uso": "_<query>_"},
 
+  { "name": "intercambiarpoke", "desc": "Proponer un intercambio de Pokémon.", "alias": ["/intercambiarpoke", "/poketrade", "/tradep", "/tradepoke"], "category": "pokes", "uso": "_<pokemon>_ + _<pokemon2>_" },
+  { "name": "toppoke", "desc": "Ver el ranking de los Pokémon más fuertes.", "alias": ["/toppoke", "/toppokemon"], "category": "pokes" },
+  { "name": "sellpokemon", "desc": "Vender un Pokémon en la tienda.", "alias": ["/sellpokemon", "/sellpoke"], "category": "pokes", "uso": "_<nombre>_ + _<precio>_" },
+  { "name": "removepoke", "desc": "Remover tu Pokémon de la tienda.", "alias": ["/removepokemon", "/removepoke", "/removep"], "category": "pokes", "uso": "_<nombre>_" },
+  { "name": "regalarpokemon", "desc": "Regalar un Pokémon a otro usuario.", "alias": ["/darpoke", "/regalarpokemon", "/regalarpoke", "/donarpokemon"], "category": "pokes", "uso": "_<nombre>_ + _<mention>_" },
+  { "name": "aceptarpvp", "desc": "Aceptar un reto de combate Pokémon.", "alias": ["/aceptarpvp"], "category": "pokes", "uso": "_<mention>_ + _<nombre>_" },
+  { "name": "pvppoke", "desc": "Retar a otro usuario a un combate Pokémon.", "alias": ["/pokepvp", "/pokemonpvp", "/pvppokemon"], "category": "pokes", "uso": "_<mention>_ + _<nombre>_" },
+  { "name": "pokeshop", "desc": "Ver los Pokémon en venta en la tienda.", "alias": ["/tiendapokemon", "/pshop", "/shopoke"], "category": "pokes" },
+  { "name": "pokemoninfo", "desc": "Ver información detallada de un Pokémon.", "alias": ["/infopoke", "/infopokemon", "/pokeinfo"], "category": "pokes", "uso": "_<nombre>_" },
+  { "name": "harempokes", "desc": "Ver tu colección de Pokémon favoritos.", "alias": ["/harempokemones", "/harempokes"], "category": "pokes", "uso": "_<mention>_" },
+  { "name": "historial", "desc": "Ver el historial de tus Pokémon.", "alias": ["/historial", "/historypoke"], "category": "pokes", "uso": "_<mention>_" },
+  { "name": "curarpokemon", "desc": "Curar a tu Pokémon después de un combate.", "alias": ["/curarpokemon", '/healpoke"], "category": "pokes", "uso": "_<nombre>_" },
+  { "name": "atrapar", "desc": "Atrapar al Pokémon mostrado en el grupo.", "alias": ["/atrapar", "/catch"], "category": "pokes", "uso": "_<responder al mensaje del Pokémon>_" },
+  { "name": "comprarpokemon", "desc": "Comprar un Pokémon de la tienda.", "alias": ["/buypoke", "/comprarpokemon", "/comprarpoke", "/buyp"], "category": "pokes", "uso": "_<nombre>_" },
+  { "name": "aceptarpoke", "desc": "Aceptar una propuesta de intercambio Pokémon.", "alias": ["aceptarpokemon"], "category": "pokes", "uso": "_<responder al mensaje del trade>_" },
+  { "name": "pokemon", "desc": "Generar un Pokémon aleatorio para atrapar.", "alias": ["/rollpoke", "/pokemon"], "category": "pokes" },
+
     // Info
     { "name": "allmenu", "desc": "Muestra la lista de comandos.", "alias": ["/allmenu", "/menu", "/help"], "category": "info", "uso": "_<category>_" },
     { "name": "ayuda", "desc": "Muestra información detallada sobre un comando específico.", "alias": ["/ayuda"], "category": "info", "uso": "_<comando>_" },
