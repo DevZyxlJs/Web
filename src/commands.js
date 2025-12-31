@@ -218,7 +218,6 @@ const commands = [
 
     // Utilidades
     {"name": "sticker", "desc": "Convierte imágenes o videos a stickers.", "alias": ["/sticker", "/s"], "category": "utils"},
-    { "name": "tofigure", "desc": "Convierte una imagen en una figura estilo comercial 1/7.", "alias": ["/tofigure", "/tf"], "category": "utils" },
     {"name": "getpic", "desc": "Ver la foto de perfil de un usuario.", "alias": ["/getpic", "/pfp"], "category": "utils", "uso": "_<mention>_"},
     {"name": "tourl", "desc": "Convierte la imagen en un link.", "alias": ["/tourl"], "category": "utils"},
     {"name": "translate", "desc": "Traduce el texto al idioma especificado.", "alias": ["/translate"], "category": "utils", "uso": "_<idioma>_ + _<text>_"},
